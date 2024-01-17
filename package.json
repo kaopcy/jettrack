@@ -13,14 +13,17 @@
   "dependencies": {
     "@iconify/react": "^4.1.1",
     "axios": "^1.6.5",
+    "leaflet": "^1.9.4",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-leaflet": "^4.2.1",
     "ts-node": "^10.9.2",
     "zod": "^3.22.4",
     "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.8",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
