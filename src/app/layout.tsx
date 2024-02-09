@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Metadata } from "next";
 
+import AuthProvider from "@/components/AuthProvider";
 import FontProvider from "@/components/FontProvider";
 import Navbar from "@/components/Navbar";
 import SignUpModal from "@/components/SignUpModal";
@@ -16,9 +17,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="min-h-screen w-full bg-background px-4 text-text-1">
         <div className="mx-auto w-full max-w-[1240px]">
-          <Navbar />
-          <SignUpModal />
-          <FontProvider>{children}</FontProvider>
+          <AuthProvider>
+            <FontProvider>
+              <Navbar />
+              <SignUpModal />
+              {children}
+            </FontProvider>
+          </AuthProvider>
         </div>
       </body>
     </html>
