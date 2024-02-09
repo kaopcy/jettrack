@@ -4,4 +4,5 @@ export const serversideIcon: string[] = [
   "fa-brands:accessible-icon",
   "fluent:people-community-20-filled",
   "ci:notification",
+  "tabler:message-2-question",
 ];
