@@ -13,7 +13,7 @@ const GoogleSignInButton = () => {
   // const [popup, setPopup] = useState<Window | null>(null);
 
   const openPopup = () => {
-    const newPopup = window.open("/auth/google-signin", "Popup", "width=400,height=400");
+    const newPopup = window.open("/auth/google-signin", "_blank", "width=400,height=400");
     // setPopup(newPopup);
   };
 

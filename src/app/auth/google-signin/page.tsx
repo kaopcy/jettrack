@@ -4,7 +4,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useEffect } from "react";
 
 const SignInPage = () => {
-  const { data, status } = useSession();
+  const { status } = useSession();
   document.write("<h1>Hello, Popup!</h1>");
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const SignInPage = () => {
     // else window.close();
   }, [status]);
 
-  return null;
+  return <div className="fixed inset-0 bg-white"></div>;
 };
 
 export default SignInPage;

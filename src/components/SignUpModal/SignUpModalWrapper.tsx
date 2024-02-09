@@ -25,8 +25,9 @@ const SignUpModalWrapper: FC<{ children: ReactNode }> = ({ children }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}
-            className="z-10 m-auto h-full w-full max-w-[650px] sm:h-fit"
+            className="relative z-10 m-auto h-full w-full max-w-[650px] sm:h-fit"
           >
+            <div className="absolute right-0 top-0"></div>
             {children}
           </motion.div>
         </div>

@@ -18,10 +18,10 @@ const SignUpModalContent = () => {
       <div className="flex w-full flex-col gap-3 py-6">
         <GoogleSignInButton />
       </div>
-      <div className="w-full flex items-center">
-        <div className="w-full h-[1px] bg-text-3"></div>
+      <div className="flex w-full items-center">
+        <div className="h-[1px] w-full bg-text-3"></div>
         <span className="px-2 text-text-3">OR</span>
-        <div className="w-full h-[1px] bg-text-3"></div>
+        <div className="h-[1px] w-full bg-text-3"></div>
       </div>
       <div className="flex w-full flex-col gap-3 py-6">
         <UsernamePasswordForm />
