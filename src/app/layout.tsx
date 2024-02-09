@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Patrick_Hand } from "next/font/google";
 import "./globals.css";
+
+import type { Metadata } from "next";
+import { Patrick_Hand } from "next/font/google";
+import localFont from "next/font/local";
 
 const nuraFont = localFont({
   src: [

@@ -16,18 +16,24 @@ const config: Config = {
 
       colors: {
         background: {
-          DEFAULT: "#ffffff",
-          600: "#D8D8D8",
-          700: "#D0D0D0",
+          DEFAULT: "#0B1416",
+          selected: "#1A282D",
+          weak: "#04090A",
+          medium: "#131313",
+          strong: "#0F1A1C",
+          hover: "#131F23",
         },
-
+        text: {
+          1: "#F2F2F2",
+          2: "#ACACAC",
+          3: "#434343",
+          4: "#303030",
+          5: "#1E1E1E",
+          6: "#131313",
+          7: "#080808",
+        },
         accent: {
           DEFAULT: "#1B1B1B",
-        },
-
-        text: {
-          400: "#696969",
-          DEFAULT: "#000000",
         },
       },
 
