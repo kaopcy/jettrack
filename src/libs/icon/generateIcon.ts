@@ -1,5 +1,6 @@
 import axios from "axios";
 import fs from "fs";
+
 import { serversideIcon } from "./iconList";
 
 const preferredIconName: Record<string, string[]> = {};
@@ -23,7 +24,7 @@ const iconLinks = Object.entries(preferredIconName).map(
     const res = await axios.all(iconLinks.map((endpoint) => axios.get(endpoint)));
     const data = res.map((r) => r.data);
     console.log(data);
-    fs.writeFileSync("src/libs/icons/iconsBundle.json", JSON.stringify(data));
+    fs.writeFileSync("src/libs/icon/iconsBundle.json", JSON.stringify(data));
   } catch (error) {
     console.log("Cannot download icon files from server:  " + error);
   }

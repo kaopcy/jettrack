@@ -1,28 +1,10 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
-import { Patrick_Hand } from "next/font/google";
-import localFont from "next/font/local";
+import { Metadata } from "next";
 
-const nuraFont = localFont({
-  src: [
-    {
-      path: "../../public/fonts/nura/nura.ttf",
-    },
-  ],
-  variable: "--font-nura",
-});
-
-const virgilFont = localFont({
-  src: [
-    {
-      path: "../../public/fonts/virgil/virgil.woff2",
-    },
-  ],
-  variable: "--font-virgil",
-});
-
-const patrickFont = Patrick_Hand({ weight: ["400"], subsets: ["latin"], variable: "--font-patrickhand" });
+import FontProvider from "@/components/FontProvider";
+import Navbar from "@/components/Navbar";
+import SignUpModal from "@/components/SignUpModal";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -32,7 +14,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${nuraFont.variable} ${virgilFont.variable} ${patrickFont.variable}`}>{children}</body>
+      <body className="min-h-screen w-full bg-background px-4 text-text-1">
+        <div className="mx-auto w-full max-w-[1240px]">
+          <Navbar />
+          <SignUpModal />
+          <FontProvider>{children}</FontProvider>
+        </div>
+      </body>
     </html>
   );
 }
