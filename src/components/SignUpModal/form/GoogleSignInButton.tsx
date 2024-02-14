@@ -1,38 +1,38 @@
-import { motion } from "framer-motion";
-import { signIn } from "next-auth/react";
-import { useState } from "react";
-import { MouseEventHandler } from "react";
+"use client";
 
+import { motion } from "framer-motion";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+import NewWindow from "react-new-window";
+
+import useGoogleSigninPopup from "@/components/SignUpModal/hooks/useGoogleSigninPopup";
 import Icon from "@/libs/icon";
 
 const GoogleSignInButton = () => {
-  const onClick: MouseEventHandler<HTMLButtonElement> = () => {
-    signIn("google", { redirect: false });
-  };
+  // const { openGooglePopup } = useGoogleSigninPopup();
+  const { data } = useSession();
 
-  // const [popup, setPopup] = useState<Window | null>(null);
-
-  const openPopup = () => {
-    const newPopup = window.open("/auth/google-signin", "_blank", "width=400,height=400");
-    // setPopup(newPopup);
-  };
-
-  // const closePopup = () => {
-  //   if (popup) {
-  //     popup.close();
-  //     setPopup(null);
-  //   }
-  // };
+  const [popup, setPopup] = useState<boolean>(false);
 
   return (
     <motion.button
-      onClick={openPopup}
+      onClick={() => setPopup(true)}
       initial={{ scale: 1 }}
       whileTap={{ scale: 0.97 }}
       className="flex w-full items-center justify-center rounded-full bg-white p-3"
     >
       <Icon icon="flat-color-icons:google" className="h-7 w-7" />
-      <span className="mx-auto text-text-5">Continue with Google</span>
+
+      <span className="mx-auto text-text-5">Continue with Google {JSON.stringify(data?.user) || "no"}</span>
+      {!data && popup && (
+        <NewWindow
+          url="/auth/google-signin"
+          onUnload={() => {
+            // setPopup(false);
+            console.log("unloaded");
+          }}
+        />
+      )}
     </motion.button>
   );
 };

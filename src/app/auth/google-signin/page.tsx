@@ -1,16 +1,20 @@
 "use client";
 
 import { signIn, useSession } from "next-auth/react";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 
-const SignInPage = () => {
+const SignInPage: FC = () => {
   const { status } = useSession();
-  document.write("<h1>Hello, Popup!</h1>");
-
   useEffect(() => {
-    if (status === "loading") return;
-    if (status === "unauthenticated") void signIn("google");
-    // else window.close();
+    switch (status) {
+      case "loading":
+        return;
+      case "unauthenticated":
+        void signIn("google", { redirect: true });
+        break;
+      case "authenticated":
+        window.close();
+    }
   }, [status]);
 
   return <div className="fixed inset-0 bg-white"></div>;
