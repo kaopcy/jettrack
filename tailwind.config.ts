@@ -13,11 +13,12 @@ const config: Config = {
         virgil: ["var(--font-virgil)"],
         patrick: ["var(--font-patrickhand)"],
         notoSansThai: ["var(--font-notoSansThai)"],
+        product: ["var(--font-product)"],
       },
 
       colors: {
         background: {
-          DEFAULT: "#0B1416",
+          DEFAULT: "#131215",
           selected: "#1A282D",
           weak: "#04090A",
           medium: "#131313",

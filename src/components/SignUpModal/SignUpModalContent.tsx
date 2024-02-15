@@ -3,7 +3,7 @@ import UsernamePasswordForm from "@/components/SignUpModal/form/UsernamePassword
 
 const SignUpModalContent = () => {
   return (
-    <div className="flex flex-col font-mono">
+    <div className="font-product flex flex-col">
       <h2 className="mb-3 text-2xl font-semibold">Log In</h2>
       <div>
         <span>By continuing, you agree to our</span>{" "}

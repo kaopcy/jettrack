@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import { Metadata } from "next";
+import local from "next/font/local";
 
 import AuthProvider from "@/components/AuthProvider";
 import FontProvider from "@/components/FontProvider";
