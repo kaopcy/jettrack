@@ -23,7 +23,7 @@ const GoogleSignInButton = () => {
     >
       <Icon icon="flat-color-icons:google" className="h-7 w-7" />
 
-      <span className="mx-auto text-text-5">Continue with Google {JSON.stringify(data?.user) || "no"}</span>
+      <span className="mx-auto text-lg text-text-5">Continue with Google</span>
       {!data && popup && (
         <NewWindow
           url="/auth/google-signin"

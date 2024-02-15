@@ -20,9 +20,14 @@ const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async signIn({ user, account, credentials }) {
+      if (account?.provider === "google") {
+        console.log(user.);
+        return true;
+      }
+      return true;
+    },
     jwt: async ({ account, token, user }) => {
-      console.log(account, token, user);
-
       return {
         id: "awdawdaw",
       };
