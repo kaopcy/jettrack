@@ -2,6 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 import { env } from "@/configs/env";
+import { userService } from "@/services/user.service";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -22,7 +23,13 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account, credentials }) {
       if (account?.provider === "google") {
-        console.log(user.);
+        const registeredUser = await userService.registerUser({
+          email: user.email ?? "",
+          id: user.id,
+          name: user.name ?? "",
+          picture: user.image ?? "",
+        });
+
         return true;
       }
       return true;
