@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { useSession } from "next-auth/react";
 import { FC, ReactNode } from "react";
 
 import useSignUpModal from "@/hooks/useSignupModal";
@@ -8,11 +9,12 @@ import useSignUpModal from "@/hooks/useSignupModal";
 const SignUpModalWrapper: FC<{ children: ReactNode }> = ({ children }) => {
   const isOpen = useSignUpModal((state) => state.isOpen);
   const close = useSignUpModal((state) => state.close);
+  const user = useSession().data?.user;
 
   return (
     <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center">
+      {isOpen && !user && (
+        <div className="fixed inset-0 z-10 flex items-center justify-center">
           <motion.div
             onClick={close}
             initial={{ opacity: 0 }}

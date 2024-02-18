@@ -5,12 +5,12 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import NewWindow from "react-new-window";
 
-import useGoogleSigninPopup from "@/components/SignUpModal/hooks/useGoogleSigninPopup";
+import { useAuthStore } from "@/contexts/AuthProvider";
 import Icon from "@/libs/icon";
 
 const GoogleSignInButton = () => {
   // const { openGooglePopup } = useGoogleSigninPopup();
-  const { data } = useSession();
+  const user = useSession().data?.user;
 
   const [popup, setPopup] = useState<boolean>(false);
 
@@ -23,8 +23,8 @@ const GoogleSignInButton = () => {
     >
       <Icon icon="flat-color-icons:google" className="h-7 w-7" />
 
-      <span className="mx-auto text-lg text-text-5">Continue with Google</span>
-      {!data && popup && (
+      <span className="mx-auto text-text-5">Continue with Google</span>
+      {!user && popup && (
         <NewWindow
           url="/auth/google-signin"
           onUnload={() => {

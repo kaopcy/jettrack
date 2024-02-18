@@ -14,6 +14,7 @@ const config: Config = {
         patrick: ["var(--font-patrickhand)"],
         notoSansThai: ["var(--font-notoSansThai)"],
         product: ["var(--font-product)"],
+        google: ["var(--font-google)"],
       },
 
       colors: {
@@ -44,6 +45,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

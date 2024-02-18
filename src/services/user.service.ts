@@ -7,7 +7,7 @@ const errorMap: ZodErrorMap = (issue, ctx) => {
 
 const userSchema = z.object(
   {
-    id: z.string(),
+    id: z.coerce.string(),
     name: z.string(),
     email: z.string(),
     picture: z.string(),
@@ -32,8 +32,10 @@ type RegisterInput = {
 };
 
 const registerUser: (input: RegisterInput) => Promise<User> = async (input) => {
-  const response = await axios.post("http://localhost:3001/user/register", input);
+  const response = await axios.post("http://localhost:3001/user/google-register", input);
   const parsedResponse = userSchema.parse(response.data);
+
+  console.log(`yhis is parsed response: ${parsedResponse}`);
 
   return parsedResponse;
 };

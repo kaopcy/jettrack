@@ -1,48 +1,6 @@
-import NextAuth, { NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import NextAuth from "next-auth";
 
-import { env } from "@/configs/env";
-import { userService } from "@/services/user.service";
-
-const authOptions: NextAuthOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: env.googleAuthId,
-      clientSecret: env.googleAuthSecret,
-      authorization: {
-        params: {
-          // code_challenge_method: "S256",
-          // code_challenge: "gvXy37oladY2wJTvGylTtgqZu-1On3LTvHkWBBIyynM",
-          // redirect_uri: "http://localhost:3000/api/auth/test",
-          prompt: "consent",
-          response_type: "code",
-        },
-      },
-    }),
-  ],
-  callbacks: {
-    async signIn({ user, account, credentials }) {
-      if (account?.provider === "google") {
-        const registeredUser = await userService.registerUser({
-          email: user.email ?? "",
-          id: user.id,
-          name: user.name ?? "",
-          picture: user.image ?? "",
-        });
-
-        return true;
-      }
-      return true;
-    },
-    jwt: async ({ account, token, user }) => {
-      return {
-        id: "awdawdaw",
-      };
-    },
-  },
-
-  secret: env.authSecret,
-};
+import authOptions from "@/libs/nextAuth/authOption";
 
 const handler = NextAuth(authOptions);
 

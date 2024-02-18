@@ -1,5 +1,5 @@
 export const serversideIcon: string[] = [
-  "ic:round-home",
+  "material-symbols:progress-activity",
   "ic:round-post-add",
   "fa-brands:accessible-icon",
   "fluent:people-community-20-filled",

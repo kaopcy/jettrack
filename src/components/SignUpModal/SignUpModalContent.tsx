@@ -3,14 +3,14 @@ import UsernamePasswordForm from "@/components/SignUpModal/form/UsernamePassword
 
 const SignUpModalContent = () => {
   return (
-    <div className="flex flex-col font-product text-lg">
+    <div className="flex flex-col font-google text-base">
       <h2 className="mb-3 text-2xl font-semibold">Log In</h2>
       <div>
-        <span>By continuing, you agree to our</span>{" "}
+        <span className="font-normal">By continuing, you agree to our</span>{" "}
         <a href="" className="text-blue-500 hover:underline">
           User Agreement
         </a>{" "}
-        <span>and acknowledge that you understand the</span>{" "}
+        <span className="">and acknowledge that you understand the</span>{" "}
         <a href="" className="text-blue-500 hover:underline">
           Privacy Policy
         </a>
