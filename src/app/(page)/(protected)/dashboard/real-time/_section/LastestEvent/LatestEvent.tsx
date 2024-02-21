@@ -1,5 +1,6 @@
 import Image from "next/image";
-import React, { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, TdHTMLAttributes } from "react";
+
+import { Column, Header, Row } from "@/components/Table/Table";
 
 const _mockLatestEvent = [
   {
@@ -91,36 +92,6 @@ const LatestEvent = () => {
         </tbody>
       </table>
     </section>
-  );
-};
-
-const Header: FC<
-  { children: ReactNode } & DetailedHTMLProps<HTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>
-> = ({ children, ...props }) => {
-  return (
-    <th {...props} className="border-b-2 p-4 pt-0 text-center font-semibold">
-      {children}
-    </th>
-  );
-};
-
-const Row: FC<
-  { children: ReactNode } & DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>
-> = ({ children, ...props }) => {
-  return (
-    <tr {...props} className="py-4 even:bg-[#EDEBEB]">
-      {children}
-    </tr>
-  );
-};
-
-const Column: FC<
-  { children: ReactNode } & DetailedHTMLProps<HTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>
-> = ({ children, ...props }) => {
-  return (
-    <td {...props} className="p-4 text-center text-base">
-      {children}
-    </td>
   );
 };
 

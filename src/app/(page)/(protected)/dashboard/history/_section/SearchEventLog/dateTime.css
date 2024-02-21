@@ -1,0 +1,21 @@
+.rdt {
+  width: fit-content;
+  font-size: 14px;
+}
+
+.rdt .form-control {
+  background-color: #d9d9d999;
+  outline: none;
+  border: none;
+  padding: 4px 8px;
+}
+
+.rdtDay {
+}
+
+.dow {
+}
+
+.rdtPicker {
+  margin-top: 10px !important;
+}
