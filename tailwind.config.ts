@@ -22,6 +22,7 @@ const config: Config = {
           hover: "#131F23",
         },
         text: {
+          DEFAULT: "#343534",
           "5": "#1E1E1E",
         },
         primary: {

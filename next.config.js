@@ -8,6 +8,9 @@ const nextConfig = {
       {
         hostname: "*.googleusercontent.com",
       },
+      {
+        hostname: "images.unsplash.com",
+      },
     ],
   },
   redirects: async () => [

@@ -35,7 +35,7 @@ const googleFont = localFont({
 });
 
 const FontProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  return <div className={cn(googleFont.variable)}>{children}</div>;
+  return <div className={cn("h-full", googleFont.variable)}>{children}</div>;
 };
 
 export default FontProvider;

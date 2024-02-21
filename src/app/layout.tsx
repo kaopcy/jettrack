@@ -20,7 +20,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className="min-h-screen w-full bg-white   font-google">
+      <body className="flex h-screen w-full flex-col bg-[#D9D9D9]   font-google">
         <>
           <AuthProvider session={session}>
             <FontProvider>

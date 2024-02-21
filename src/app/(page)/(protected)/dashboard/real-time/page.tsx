@@ -1,10 +1,13 @@
-import React from "react";
+import LatestEvent from "./_section/LastestEvent";
 
 const RealTimeDashBoardPage = () => {
   return (
-    <main className="flex min-h-screen w-full">
-      <div className=""></div>
-    </main>
+    <>
+      <div className="w-full"></div>
+      <div className="w-full">
+        <LatestEvent />
+      </div>
+    </>
   );
 };
 
