@@ -23,7 +23,7 @@ const SignInPage: FC = () => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-white">
-      <div className="text-lg font-medium text-text-4">Loading</div>
+      <div className="text-text-4 text-lg font-medium">Loading</div>
     </div>
   );
 };

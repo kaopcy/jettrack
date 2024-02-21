@@ -20,18 +20,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className="min-h-screen w-full bg-background px-4 font-google text-text-1">
-        <div className="mx-auto w-full max-w-[1240px]">
-          <>
-            <AuthProvider session={session}>
-              <FontProvider>
-                <Navbar />
-                <SignUpModal />
-                {children}
-              </FontProvider>
-            </AuthProvider>
-          </>
-        </div>
+      <body className="min-h-screen w-full bg-white   font-google">
+        <>
+          <AuthProvider session={session}>
+            <FontProvider>
+              <Navbar />
+              <SignUpModal />
+              {children}
+            </FontProvider>
+          </AuthProvider>
+        </>
       </body>
     </html>
   );

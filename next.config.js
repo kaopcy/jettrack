@@ -5,8 +5,18 @@ const nextConfig = {
       {
         hostname: "*.googleusercontent.com",
       },
+      {
+        hostname: "*.googleusercontent.com",
+      },
     ],
   },
+  redirects: async () => [
+    {
+      source: "/",
+      destination: "/home",
+      permanent: true,
+    },
+  ],
 };
 
 module.exports = nextConfig;

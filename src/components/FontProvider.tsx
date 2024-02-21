@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import { FC, ReactNode } from "react";
 
-import cn from "@/app/utils/cn";
+import cn from "@/utils/cn";
 
 const googleFont = localFont({
   src: [
