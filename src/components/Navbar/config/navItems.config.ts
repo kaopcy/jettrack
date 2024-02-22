@@ -7,7 +7,7 @@ export const navItems = [
   },
   {
     label: "History",
-    href: routes.dashBoard.history,
+    href: routes.dashBoard.history.index,
   },
   {
     label: "Settings",

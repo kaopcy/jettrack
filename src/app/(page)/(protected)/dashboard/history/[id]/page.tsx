@@ -1,21 +1,33 @@
-import CarImage from "../_section/CarImage";
-import HistoryLog from "../_section/HistoryLog";
-import LicenseImage from "../_section/LicenseImage";
-import SearchEventLog from "../_section/SearchEventLog";
+import { FC } from "react";
+import { z } from "zod";
 
-const RealTimeDashBoardPage = () => {
+import { HistoryDetailProvider } from "@/app/(page)/(protected)/dashboard/history/[id]/_store/useHistoryDetailStore";
+import { historyService } from "@/services/history.service";
+
+import CarImage from "../_section/CarImage";
+import LicenseImage from "../_section/LicenseImage";
+
+const paramsSchema = z.object({
+  id: z.coerce.string(),
+});
+
+type Props = {
+  params: z.infer<typeof paramsSchema>;
+};
+
+const HistoryDashboardPerIdPage: FC<Props> = async ({ params }) => {
+  const { id } = paramsSchema.parse(params);
+
+  const historyDetail = await historyService.getById(id);
+
   return (
-    <div className="flex h-full w-full gap-x-2">
-      <div className="flex h-full w-full flex-col gap-y-2">
-        <SearchEventLog />
-        <HistoryLog />
-      </div>
+    <HistoryDetailProvider overrideState={{ historyDetail }}>
       <div className="flex w-full flex-col gap-y-2 ">
         <CarImage />
         <LicenseImage />
       </div>
-    </div>
+    </HistoryDetailProvider>
   );
 };
 
-export default RealTimeDashBoardPage;
+export default HistoryDashboardPerIdPage;

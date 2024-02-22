@@ -33,7 +33,7 @@ const Navbar = () => {
       </div>
       <div className=""></div>
       <div className="ml-auto px-4 text-3xl font-black">
-        <Image width={160} height={50} alt="icon" src="/images/icon.svg" />
+        <Image width={160} height={50} alt="icon" className="h-auto" src="/images/icon.svg" />
       </div>
     </div>
   );
