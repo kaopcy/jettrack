@@ -1,0 +1,235 @@
+import { HistoryLog } from "@/types/historyLog.type";
+
+export const _mockHistoryLogs: HistoryLog[] = [
+  {
+    id: "1",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "2",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "กรุงเทพมหานคร",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "3",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "4",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "นครนายก",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "5",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "6",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "7",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "8",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "9",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "กรุงเทพมหานคร",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "10",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "11",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "นครนายก",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "12",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "13",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "14",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "15",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "16",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "กรุงเทพมหานคร",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "17",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "Unknown",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "18",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "นครนายก",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "19",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "20",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: "21",
+    dateAndTime: "2023-02-15 10:12:22",
+    licensePlate: "กต 1234",
+    province: "ฉะเชิงเทรา",
+    brand: "",
+    type: "รถยนต์ส่วนบุคคล",
+    ipAddress: "107.127.7.125",
+    licenseImage:
+      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];

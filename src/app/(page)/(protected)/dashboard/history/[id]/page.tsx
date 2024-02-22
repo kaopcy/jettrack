@@ -1,7 +1,7 @@
-import CarImage from "./_section/CarImage";
-import HistoryLog from "./_section/HistoryLog";
-import LicenseImage from "./_section/LicenseImage";
-import SearchEventLog from "./_section/SearchEventLog";
+import CarImage from "../_section/CarImage";
+import HistoryLog from "../_section/HistoryLog";
+import LicenseImage from "../_section/LicenseImage";
+import SearchEventLog from "../_section/SearchEventLog";
 
 const RealTimeDashBoardPage = () => {
   return (

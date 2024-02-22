@@ -5,7 +5,7 @@ const LicenseImage = () => {
   return (
     <section className="flex h-full w-full flex-col items-start justify-start bg-white px-8 pb-8 pt-4">
       <h1 className="mb-4 text-xl font-bold">License Image</h1>
-      <div className="relative  aspect-[18/9] h-full">
+      <div className="relative  aspect-[18/9] h-full max-w-full">
         <Image
           alt="car"
           fill

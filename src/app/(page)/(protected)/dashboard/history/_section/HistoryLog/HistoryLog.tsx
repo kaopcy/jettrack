@@ -1,268 +1,48 @@
-import Image from "next/image";
+"use client";
+
 import React from "react";
 
+import { useHistoryLog } from "@/app/(page)/(protected)/dashboard/history/_store/useHistoryStore";
 import { Column, Header, Row } from "@/components/Table/Table";
-
-const _mockHistoryLogs = [
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "Unknown",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "กรุงเทพมหานคร",
-    brand: "Unknown",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "Unknown",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "นครนายก",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  // {
-  //   id: "101",
-  //   dateAndTime: "2023-02-15 10:12:22",
-  //   licensePlate: "กต 1234",
-  //   province: "ฉะเชิงเทรา",
-  //   brand: "",
-  //   type: "รถยนต์ส่วนบุคคล",
-  //   ipAddress: "107.127.7.125",
-  //   licenseImage:
-  //     "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  // },
-  // {
-  //   id: "101",
-  //   dateAndTime: "2023-02-15 10:12:22",
-  //   licensePlate: "กต 1234",
-  //   province: "ฉะเชิงเทรา",
-  //   brand: "",
-  //   type: "รถยนต์ส่วนบุคคล",
-  //   ipAddress: "107.127.7.125",
-  //   licenseImage:
-  //     "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  // },
-  // {
-  //   id: "101",
-  //   dateAndTime: "2023-02-15 10:12:22",
-  //   licensePlate: "กต 1234",
-  //   province: "ฉะเชิงเทรา",
-  //   brand: "Unknown",
-  //   type: "รถยนต์ส่วนบุคคล",
-  //   ipAddress: "107.127.7.125",
-  //   licenseImage:
-  //     "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  // },
-  // {
-  //   id: "101",
-  //   dateAndTime: "2023-02-15 10:12:22",
-  //   licensePlate: "กต 1234",
-  //   province: "กรุงเทพมหานคร",
-  //   brand: "Unknown",
-  //   type: "รถยนต์ส่วนบุคคล",
-  //   ipAddress: "107.127.7.125",
-  //   licenseImage:
-  //     "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  // },
-  // {
-  //   id: "101",
-  //   dateAndTime: "2023-02-15 10:12:22",
-  //   licensePlate: "กต 1234",
-  //   province: "ฉะเชิงเทรา",
-  //   brand: "Unknown",
-  //   type: "รถยนต์ส่วนบุคคล",
-  //   ipAddress: "107.127.7.125",
-  //   licenseImage:
-  //     "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  // },
-  // {
-  //   id: "101",
-  //   dateAndTime: "2023-02-15 10:12:22",
-  //   licensePlate: "กต 1234",
-  //   province: "นครนายก",
-  //   brand: "",
-  //   type: "รถยนต์ส่วนบุคคล",
-  //   ipAddress: "107.127.7.125",
-  //   licenseImage:
-  //     "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  // },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "Unknown",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "กรุงเทพมหานคร",
-    brand: "Unknown",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "Unknown",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "นครนายก",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: "101",
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    type: "รถยนต์ส่วนบุคคล",
-    ipAddress: "107.127.7.125",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
+import Icon from "@/libs/icon";
 
 const HistoryLog = () => {
+  const historyLogs = useHistoryLog((state) => state.historyList);
+  const isLogEmpty = historyLogs.length === 0;
   return (
-    <div className="flex h-full min-h-0 w-full gap-4  bg-white px-3 pb-4 pt-4">
-      <div className="flex h-full w-full flex-col  items-center justify-start overflow-y-auto">
-        <table className="w-full table-auto border-collapse">
+    <div className="flex h-full min-h-0 w-full flex-col gap-4  bg-white px-3 pb-4 pt-4">
+      <div className="relative flex h-full w-full  flex-col items-center justify-start overflow-y-auto">
+        {isLogEmpty && (
+          <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-4">
+            <div className="h-14 w-14">
+              <Icon icon="material-symbols:car-tag-outline" className="h-full w-full text-[#00000040]" />
+            </div>
+            ไม่มีข้อมูลรถในขณะนี้
+          </div>
+        )}
+        <table className="w-full table-auto border-collapse ">
           <thead className="sticky top-0 bg-white">
             <tr>
-              <Header>ID</Header>
-              <Header>Date and time</Header>
-              <Header>License plate</Header>
-              <Header>Province</Header>
-              <Header>Type</Header>
-              <Header>Ip</Header>
+              <Header className="pt-2">ID</Header>
+              <Header className="pt-2">Date and time</Header>
+              <Header className="pt-2">License</Header>
+              <Header className="pt-2">Province</Header>
+              <Header className="pt-2">Type</Header>
+              <Header className="pt-2">Ip</Header>
             </tr>
           </thead>
           <tbody>
-            {_mockHistoryLogs.map((event, index) => (
-              <Row className="text-sm even:bg-[#F4F4F4]" key={index}>
-                <Column>{event.id}</Column>
-                <Column>{event.dateAndTime}</Column>
-                <Column>{event.licensePlate}</Column>
-                <Column>{event.province}</Column>
-                <Column>{event.type}</Column>
-                <Column>{event.ipAddress}</Column>
-              </Row>
-            ))}
+            {!isLogEmpty &&
+              historyLogs.map((event, index) => (
+                <Row className="cursor-pointer text-sm even:bg-[#F4F4F4] hover:bg-[#e7e7e7]" key={index}>
+                  <Column>{event.id}</Column>
+                  <Column>{event.dateAndTime}</Column>
+                  <Column>{event.licensePlate}</Column>
+                  <Column>{event.province}</Column>
+                  <Column>{event.type}</Column>
+                  <Column>{event.ipAddress}</Column>
+                </Row>
+              ))}
           </tbody>
         </table>
       </div>

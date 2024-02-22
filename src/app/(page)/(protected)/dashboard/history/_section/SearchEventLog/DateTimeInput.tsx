@@ -16,9 +16,9 @@ const DateTimeInput: FC<{ label: string; icon: string; indicatorClassName: strin
 }) => {
   return (
     <div className="flex gap-x-3">
-      <span className={cn("mt-1.5 h-3 w-3 rounded-full bg-[#D9D9D9]", indicatorClassName)}></span>
+      <span className={cn("mt-1 h-3 w-3 rounded-full bg-[#D9D9D9]", indicatorClassName)}></span>
       <div className="flex flex-col gap-y-2">
-        <h1 className="text-base font-bold">{label}</h1>
+        <h1 className="text-sm font-normal">{label}</h1>
         <div className="relative">
           <DateTime inputProps={{ placeholder: "pick your date" }} />
           <Icon icon={icon} className={cn("absolute right-2 top-1/2 -translate-y-1/2 text-[#00000040]")} />
