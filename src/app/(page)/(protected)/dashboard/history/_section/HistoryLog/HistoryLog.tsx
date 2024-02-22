@@ -29,6 +29,8 @@ const HistoryLog = () => {
   };
 
   const setLicensePlate = useSearchInputStore((state) => state.setLicensePlate);
+  const setProvince = useSearchInputStore((state) => state.setProvince);
+  const setType = useSearchInputStore((state) => state.setType);
   const setStartDateTime = useSearchInputStore((state) => state.setStartDateTime);
   const setEndDateTime = useSearchInputStore((state) => state.setEndDateTime);
 
@@ -98,8 +100,24 @@ const HistoryLog = () => {
                       {event.licensePlate}
                     </ColumnLink>
                   </Column>
-                  <Column>{event.province}</Column>
-                  <Column>{event.type}</Column>
+                  <Column>
+                    <ColumnLink
+                      onClick={() => {
+                        setProvince(event.province);
+                      }}
+                    >
+                      {event.province}
+                    </ColumnLink>
+                  </Column>
+                  <Column>
+                    <ColumnLink
+                      onClick={() => {
+                        setType(event.type);
+                      }}
+                    >
+                      {event.type}
+                    </ColumnLink>
+                  </Column>
                   <Column>{event.ipAddress}</Column>
                 </Row>
               ))}

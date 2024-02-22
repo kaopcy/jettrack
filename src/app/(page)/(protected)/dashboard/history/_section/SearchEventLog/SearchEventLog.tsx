@@ -82,14 +82,11 @@ const SearchEventLog = () => {
         </div>
         <button
           type="submit"
-          className={cn("relative self-end overflow-hidden rounded-md bg-[#1D3557] px-4 py-1 font-medium text-white")}
+          className={cn(
+            "relative self-end  rounded-md bg-[#1D3557] px-4 py-1 text-center font-medium text-white hover:bg-[#111c2c]",
+          )}
           disabled={isLoading}
         >
-          {isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-[#00000050]">
-              <Icon icon="line-md:loading-loop" className="h-5 w-5 animate-spin text-white" />
-            </div>
-          )}
           Search
         </button>
       </form>

@@ -1,15 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
+
+import Card from "@/components/Card";
 
 const LicenseImage = () => {
   return (
-    <motion.section
+    <Card
       initial={{ opacity: 0, y: 10, scale: 0.99 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 0.1 }}
-      className="flex h-full w-full flex-col items-start justify-start bg-white px-8 pb-8 pt-4"
+      className="flex flex-col items-start justify-start"
     >
       <h1 className="mb-4 text-xl font-bold">License Image</h1>
       <div className="relative  aspect-[18/9] h-full max-w-full">
@@ -22,7 +23,7 @@ const LicenseImage = () => {
           priority
         />
       </div>
-    </motion.section>
+    </Card>
   );
 };
 

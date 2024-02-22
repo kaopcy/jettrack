@@ -3,15 +3,18 @@ import { DetailedHTMLProps, FC, InputHTMLAttributes } from "react";
 import Icon from "@/libs/icon";
 import cn from "@/utils/cn";
 
-type Props = { icon: string; label: string; iconClassName?: string } & DetailedHTMLProps<
-  InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->;
+type Props = {
+  icon: string;
+  label: string;
+  iconClassName?: string;
+  containerClassName?: string;
+  labelClassName?: string;
+} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-const TextInput: FC<Props> = ({ label, icon, iconClassName, ...props }) => {
+const TextInput: FC<Props> = ({ label, icon, iconClassName, containerClassName, labelClassName, ...props }) => {
   return (
-    <div className="flex w-full max-w-[200px] flex-col  gap-y-2">
-      <h1 className="text-sm font-normal">{label}</h1>
+    <div className={cn("flex w-full max-w-[200px] flex-col  gap-y-2", containerClassName)}>
+      <h1 className={cn("text-sm font-normal", labelClassName)}>{label}</h1>
 
       <div className="group relative">
         <input
