@@ -2,14 +2,13 @@
 
 import React, { FormEventHandler } from "react";
 
-import { useHistoryLog } from "@/app/(page)/(protected)/dashboard/history/_store/useHistoryStore";
 import Card from "@/components/Card";
-import Icon from "@/libs/icon";
+import TextInput from "@/components/TextInput";
 import cn from "@/utils/cn";
 
+import { useHistoryLog } from "../../_store/useHistoryStore";
 import useSearchInputStore from "../../_store/useSearchInputStore";
 import DateTimeInput from "./DateTimeInput";
-import TextInput from "./TextInput";
 
 const SearchEventLog = () => {
   const setLicensePlate = useSearchInputStore((state) => state.setLicensePlate);

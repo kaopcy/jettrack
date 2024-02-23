@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import Card from "@/components/Card";
 import { Column, Header, Row } from "@/components/Table/Table";
 import dateFormatter from "@/utils/dateFormatter";
 
@@ -64,7 +65,7 @@ const _mockLatestEvent = [
 
 const LatestEvent = () => {
   return (
-    <section className="flex  h-full w-full flex-col bg-white px-2">
+    <Card className="flex  h-full w-full flex-col bg-white px-2">
       <h2 className="py-4 pl-6 text-xl font-bold">Latest event</h2>
       <table className="w-full table-auto border-collapse text-sm">
         <thead>
@@ -92,7 +93,7 @@ const LatestEvent = () => {
           ))}
         </tbody>
       </table>
-    </section>
+    </Card>
   );
 };
 

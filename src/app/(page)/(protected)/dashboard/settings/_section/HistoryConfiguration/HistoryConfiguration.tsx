@@ -1,5 +1,5 @@
-import TextInput from "@/app/(page)/(protected)/dashboard/history/_section/SearchEventLog/TextInput";
 import Card from "@/components/Card";
+import TextInput from "@/components/TextInput";
 
 const HistoryConfiguration = () => {
   return (

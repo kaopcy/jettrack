@@ -10,7 +10,7 @@ type Props = { children: ReactNode } & MotionProps &
 
 const Card: FC<Props> = ({ children, ...props }) => {
   return (
-    <motion.section {...props} className={cn("h-full w-full rounded-lg bg-white px-8 pb-8 pt-4", props.className)}>
+    <motion.section {...props} className={cn("rounded-lg bg-white px-8 pb-8 pt-4", props.className)}>
       {children}
     </motion.section>
   );

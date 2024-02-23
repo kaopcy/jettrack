@@ -1,10 +1,13 @@
 export const routes = {
   dashBoard: {
-    realTime: "/dashboard/real-time",
-    history: {
-      index: "/dashboard/history",
-      id: (id: string) => `/dashboard/history/${id}`,
-    },
+    ip: (ip: string) => ({
+      realTime: `/dashboard/${ip}/real-time`,
+      history: {
+        index: `/dashboard/${ip}/history`,
+        id: (id: string) => `/dashboard/${ip}/history/${id}`,
+      },
+    }),
+    noIp: (base: string) => `/dashboard/${base}-random`,
     settings: "/dashboard/settings",
   },
   home: "/home",

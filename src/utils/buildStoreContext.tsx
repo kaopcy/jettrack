@@ -3,8 +3,8 @@
 import { createContext, FC, ReactNode, useContext, useRef } from "react";
 import { createStore, StateCreator, StoreApi, useStore } from "zustand";
 
-type DeepPartial<T> = {
-  [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K];
+type DeepPartial<Obj> = {
+  [Key in keyof Obj]?: Obj[Key] extends object ? DeepPartial<Obj[Key]> : Obj[Key];
 };
 
 function buildStoreContext<State extends object>(creator: StateCreator<State>) {

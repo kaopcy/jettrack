@@ -21,10 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="flex h-screen w-full flex-col bg-[#D9D9D9]   font-google">
         <>
           <AuthProvider session={session}>
-            <FontProvider>
-              <SignUpModal />
-              {children}
-            </FontProvider>
+            <FontProvider>{children}</FontProvider>
           </AuthProvider>
         </>
       </body>

@@ -19,7 +19,7 @@ const nextConfig = {
   redirects: async () => [
     {
       source: "/",
-      destination: "/home",
+      destination: "auth/sign-in",
       permanent: true,
     },
   ],

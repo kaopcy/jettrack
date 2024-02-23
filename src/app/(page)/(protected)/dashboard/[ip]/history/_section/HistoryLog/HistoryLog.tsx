@@ -8,6 +8,7 @@ import Card from "@/components/Card";
 import { Column, Header, Row } from "@/components/Table/Table";
 import { routes } from "@/configs/routes.config";
 import Icon from "@/libs/icon";
+import { useIp } from "@/stores/useIp";
 import cn from "@/utils/cn";
 import dateFormatter from "@/utils/dateFormatter";
 
@@ -22,11 +23,12 @@ const HistoryLog = () => {
   const router = useRouter();
 
   const { id: currentHistoryId } = useParams<{ id: string }>();
+  const { ip } = useParams<{ ip: string }>();
 
   const isActive = useCallback((id: string) => currentHistoryId == id, [currentHistoryId]);
 
   const onRowClick = (id: string) => {
-    router.push(routes.dashBoard.history.id(id));
+    router.push(routes.dashBoard.ip(ip).history.id(id));
   };
 
   const setLicensePlate = useSearchInputStore((state) => state.setLicensePlate);

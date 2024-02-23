@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { z } from "zod";
 
-import { HistoryDetailProvider } from "@/app/(page)/(protected)/dashboard/history/[id]/_store/useHistoryDetailStore";
 import { historyService } from "@/services/history.service";
 
 import CarImage from "../_section/CarImage";
 import LicenseImage from "../_section/LicenseImage";
+import { HistoryDetailProvider } from "./_store/useHistoryDetailStore";
 
 const paramsSchema = z.object({
   id: z.coerce.string(),

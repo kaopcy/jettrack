@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import { useHistoryDetailStore } from "@/app/(page)/(protected)/dashboard/history/[id]/_store/useHistoryDetailStore";
 import Card from "@/components/Card";
+
+import { useHistoryDetailStore } from "../[id]/_store/useHistoryDetailStore";
 
 const CarImage = () => {
   const carImage = useHistoryDetailStore((state) => state.historyDetail).licenseImage;

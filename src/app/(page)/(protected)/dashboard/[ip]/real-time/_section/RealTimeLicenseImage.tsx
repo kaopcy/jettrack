@@ -4,14 +4,9 @@ import Image from "next/image";
 
 import Card from "@/components/Card";
 
-const LicenseImage = () => {
+const RealTimeLicenseImage = () => {
   return (
-    <Card
-      initial={{ opacity: 0, y: 10, scale: 0.99 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ delay: 0.1 }}
-      className="flex h-full w-full flex-col items-start justify-start"
-    >
+    <Card className="flex h-full w-full flex-col items-start justify-start">
       <h1 className="mb-4 text-xl font-bold">License Image</h1>
       <div className="relative  aspect-[18/9] h-full max-w-full">
         <Image
@@ -27,4 +22,4 @@ const LicenseImage = () => {
   );
 };
 
-export default LicenseImage;
+export default RealTimeLicenseImage;

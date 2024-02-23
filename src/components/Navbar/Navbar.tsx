@@ -4,15 +4,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { navItems } from "@/components/Navbar/config/navItems.config";
+import { routes } from "@/configs/routes.config";
+import { useIp } from "@/stores/useIp";
 import cn from "@/utils/cn";
 
 const Navbar = () => {
   const currentPath = usePathname();
 
+  const globalIp = useIp((state) => state.ip);
+
   const isActive = (path: string) => {
+    console.log(currentPath, path);
     return currentPath.includes(path);
   };
+
+  const navItems = [
+    {
+      label: "Real Time",
+      href: globalIp ? routes.dashBoard.ip(globalIp).realTime : routes.dashBoard.noIp("realtime"),
+    },
+    {
+      label: "History",
+      href: globalIp ? routes.dashBoard.ip(globalIp).history.index : routes.dashBoard.noIp("history"),
+    },
+    {
+      label: "Settings",
+      href: routes.dashBoard.settings,
+    },
+  ];
 
   return (
     <div className="flex h-[70px] items-center bg-primary px-8 font-google text-white">
