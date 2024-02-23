@@ -8,4 +8,5 @@ export const routes = {
     settings: "/dashboard/settings",
   },
   home: "/home",
+  signIn: "/auth/sign-in",
 };

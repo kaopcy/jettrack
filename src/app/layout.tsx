@@ -1,12 +1,10 @@
 import "./globals.css";
 
 import { Metadata } from "next";
-import local from "next/font/local";
 import { getServerSession } from "next-auth";
 
 import AuthProvider from "@/components/AuthProvider";
 import FontProvider from "@/components/FontProvider";
-import Navbar from "@/components/Navbar";
 import SignUpModal from "@/components/SignUpModal";
 import authOptions from "@/libs/nextAuth/authOption";
 
@@ -24,7 +22,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <>
           <AuthProvider session={session}>
             <FontProvider>
-              <Navbar />
               <SignUpModal />
               {children}
             </FontProvider>

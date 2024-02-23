@@ -5,4 +5,6 @@ export const serversideIcon: string[] = [
   "fluent:people-community-20-filled",
   "ci:notification",
   "tabler:message-2-question",
+  "material-symbols:person-2-outline",
+  "material-symbols:lock-outline",
 ];

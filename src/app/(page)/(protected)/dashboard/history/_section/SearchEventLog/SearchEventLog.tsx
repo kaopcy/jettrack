@@ -3,6 +3,7 @@
 import React, { FormEventHandler } from "react";
 
 import { useHistoryLog } from "@/app/(page)/(protected)/dashboard/history/_store/useHistoryStore";
+import Card from "@/components/Card";
 import Icon from "@/libs/icon";
 import cn from "@/utils/cn";
 
@@ -38,7 +39,7 @@ const SearchEventLog = () => {
   };
 
   return (
-    <div className="flex w-full flex-col bg-white px-8 pb-4 pt-4">
+    <Card className="flex h-fit w-full flex-col bg-white px-8 pb-6 pt-4">
       <h1 className="mb-4 text-xl font-bold">Search Event Log</h1>
       <form onSubmit={onSubmit} className="flex w-full gap-8">
         <div className="flex w-full justify-between gap-6">
@@ -90,7 +91,7 @@ const SearchEventLog = () => {
           Search
         </button>
       </form>
-    </div>
+    </Card>
   );
 };
 

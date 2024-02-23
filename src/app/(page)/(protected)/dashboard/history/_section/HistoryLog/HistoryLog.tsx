@@ -5,6 +5,7 @@ import moment from "moment";
 import { useParams, useRouter } from "next/navigation";
 import React, { FC, ReactNode, useCallback } from "react";
 
+import Card from "@/components/Card";
 import { Column, Header, Row } from "@/components/Table/Table";
 import { routes } from "@/configs/routes.config";
 import Icon from "@/libs/icon";
@@ -35,7 +36,7 @@ const HistoryLog = () => {
   const setEndDateTime = useSearchInputStore((state) => state.setEndDateTime);
 
   return (
-    <div className="relative flex h-full min-h-0 w-full flex-col gap-4  bg-white px-3 pb-4 pt-4">
+    <Card className="relative flex h-full min-h-0 w-full flex-col gap-4  bg-white px-3 pb-4 pt-4">
       <AnimatePresence>
         {isLoading && (
           <motion.div
@@ -125,7 +126,7 @@ const HistoryLog = () => {
         </table>
       </div>
       <button className="self-end rounded-md bg-[#1D3557] px-4 py-1 font-medium text-white">Export</button>
-    </div>
+    </Card>
   );
 };
 
