@@ -1,9 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import { signIn } from "next-auth/react";
-import { DetailedHTMLProps, FC, InputHTMLAttributes } from "react";
-import { FieldErrors, FormSubmitHandler, SubmitHandler, useForm, UseFormRegister } from "react-hook-form";
+import { DetailedHTMLProps, FC, InputHTMLAttributes, useState } from "react";
+import { FieldErrors, SubmitHandler, useForm, UseFormRegister } from "react-hook-form";
 import { z } from "zod";
 
 import Icon from "@/libs/icon";
@@ -23,22 +24,42 @@ const SigninSection = () => {
     resolver: zodResolver(formSchema),
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = async ({ username, password }, e) => {
     e?.preventDefault();
-    const res = await signIn("credentials", {
-      redirect: false,
-      username,
-      password,
-      callbackUrl: `${window.location.origin}`,
-    });
-    if (res?.ok) window.location.reload();
+    try {
+      setIsLoading(true);
+      const res = await signIn("credentials", {
+        redirect: false,
+        username,
+        password,
+        callbackUrl: `${window.location.origin}`,
+      });
+      if (res?.ok) window.location.reload();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(true);
+    }
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex w-full max-w-[350px] flex-col rounded-xl bg-white px-5 pb-10 pt-5"
+      className="relative flex w-full max-w-[350px] flex-col overflow-hidden rounded-xl bg-white px-5 pb-10 pt-5"
     >
+      {isLoading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="absolute inset-0 z-10 flex items-center justify-center bg-[#00000030]"
+        >
+          <Icon icon="line-md:loading-loop" className="h-16 w-16 animate-spin text-white" />
+        </motion.div>
+      )}
       <h1 className="text-2xl font-bold">Login</h1>
       <span className="mb-4 font-medium text-zinc-400">please sign in to continue</span>
       <div className="flex w-full flex-col gap-4">

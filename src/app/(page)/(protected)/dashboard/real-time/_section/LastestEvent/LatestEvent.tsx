@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { Column, Header, Row } from "@/components/Table/Table";
+import dateFormatter from "@/utils/dateFormatter";
 
 const _mockLatestEvent = [
   {
@@ -78,12 +79,12 @@ const LatestEvent = () => {
         <tbody>
           {_mockLatestEvent.map((event, index) => (
             <Row key={index}>
-              <Column>{event.dateAndTime}</Column>
+              <Column>{dateFormatter(event.dateAndTime)}</Column>
               <Column>{event.licensePlate}</Column>
               <Column>{event.province}</Column>
               <Column>{event.brand}</Column>
-              <Column>
-                <div className="relative mx-auto h-[50px] w-[180px]">
+              <Column className="py-2">
+                <div className="relative mx-auto h-[55px] w-[140px]">
                   <Image alt="" fill src={event.licenseImage} className="object-cover" />
                 </div>
               </Column>

@@ -1,7 +1,6 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import moment from "moment";
 import { useParams, useRouter } from "next/navigation";
 import React, { FC, ReactNode, useCallback } from "react";
 
@@ -10,6 +9,7 @@ import { Column, Header, Row } from "@/components/Table/Table";
 import { routes } from "@/configs/routes.config";
 import Icon from "@/libs/icon";
 import cn from "@/utils/cn";
+import dateFormatter from "@/utils/dateFormatter";
 
 import { useHistoryLog } from "../../_store/useHistoryStore";
 import useSearchInputStore from "../../_store/useSearchInputStore";
@@ -89,7 +89,7 @@ const HistoryLog = () => {
                         setEndDateTime(event.dateAndTime);
                       }}
                     >
-                      {moment(event.dateAndTime).format("DD MMM YYYY, HH:MM:SS")}
+                      {dateFormatter(event.dateAndTime)}
                     </ColumnLink>
                   </Column>
                   <Column>
