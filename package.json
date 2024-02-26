@@ -36,6 +36,8 @@
     "react-new-window": "^1.0.1",
     "react-textarea-autosize": "^8.5.3",
     "react-use": "^17.5.0",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "tailwind-merge": "^2.2.1",
     "ts-node": "^10.9.2",
     "zod": "^3.22.4",
