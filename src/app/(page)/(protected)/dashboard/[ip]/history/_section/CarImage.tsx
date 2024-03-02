@@ -8,7 +8,7 @@ import Card from "@/components/Card";
 import { useHistoryDetailStore } from "../[id]/_store/useHistoryDetailStore";
 
 const CarImage = () => {
-  const carImage = useHistoryDetailStore((state) => state.historyDetail).licenseImage;
+  const carImage = useHistoryDetailStore((state) => state.historyDetail).carImage;
 
   return (
     <Card

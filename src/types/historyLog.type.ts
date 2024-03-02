@@ -9,6 +9,7 @@ export const historyLogSchema = z.object({
   type: z.coerce.string(),
   ipAddress: z.coerce.string(),
   licenseImage: z.coerce.string(),
+  carImage: z.coerce.string(),
 });
 
 export type HistoryLog = z.infer<typeof historyLogSchema>;

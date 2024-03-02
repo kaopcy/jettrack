@@ -31,7 +31,11 @@ const RealTimeCarImage = () => {
   return (
     <Card className="relative h-full w-full p-3">
       <div className="relative h-full w-full">
-        <img src={src} alt="mock car" className="h-full w-full object-cover" />
+        <img
+          src={"http://localhost:9000/car/15f514c5-47a2-42d6-8d0a-5b600f351217.jpg"}
+          alt="mock car"
+          className="h-full w-full object-cover"
+        />
       </div>
     </Card>
   );

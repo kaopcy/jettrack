@@ -14,12 +14,15 @@ const nextConfig = {
       {
         hostname: "media.istockphoto.com",
       },
+      {
+        hostname: "localhost",
+      },
     ],
   },
   redirects: async () => [
     {
       source: "/",
-      destination: "auth/sign-in",
+      destination: "/auth/sign-in",
       permanent: true,
     },
   ],
