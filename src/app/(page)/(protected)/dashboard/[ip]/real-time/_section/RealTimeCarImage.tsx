@@ -13,29 +13,30 @@ const RealTimeCarImage = () => {
     // Listen for incoming messages
     socket.on("response", (message) => {
       const file = message.message;
-      const base64Image = `data:image/png;base64,${file.replaceAll('"', "")}`;
 
+      if (file.length == 0) return;
+
+      const base64Image = `data:image/png;base64,${file.replaceAll('"', "")}`;
       setSrc(base64Image);
     });
 
-    socket.on("joiner", (message) => {
-      setSrc(JSON.stringify(message.message));
-      console.log(JSON.stringify(message.message));
-    });
+    // socket.on("joiner", (message) => {
+    //   setSrc(JSON.stringify(message.message));
+    // });
 
-    socket.emit("response", "dwd", (message) => {
-      console.log(message + "dwdwd");
+    socket.emit("response", "", (message) => {
+      console.log(message + "");
     });
   }, []);
 
   return (
     <Card className="relative h-full w-full p-3">
       <div className="relative h-full w-full">
-        <img
-          src={"http://localhost:9000/car/15f514c5-47a2-42d6-8d0a-5b600f351217.jpg"}
-          alt="mock car"
-          className="h-full w-full object-cover"
-        />
+        {src.length > 0 ? (
+          <img src={src} alt="mock car" className="aspect-[16/7]  w-full object-cover" />
+        ) : (
+          <div className="">No input from producer</div>
+        )}
       </div>
     </Card>
   );

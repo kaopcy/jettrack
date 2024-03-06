@@ -121,7 +121,7 @@ const HistoryLog = () => {
                       {event.type}
                     </ColumnLink>
                   </Column>
-                  <Column>{event.ipAddress}</Column>
+                  <Column>{ip}</Column>
                 </Row>
               ))}
           </tbody>
