@@ -3,6 +3,11 @@ import IpWithStatus from "./_section/IpWithStatus";
 import LatestEvent from "./_section/LastestEvent";
 import RealTimeCarImage from "./_section/RealTimeCarImage";
 import RealTimeLicenseImage from "./_section/RealTimeLicenseImage";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Real Time - Jet Track",
+};
 
 const RealTimeDashBoardPage = () => {
   return (
