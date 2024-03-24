@@ -5,8 +5,27 @@ const nextConfig = {
       {
         hostname: "*.googleusercontent.com",
       },
+      {
+        hostname: "*.googleusercontent.com",
+      },
+      {
+        hostname: "images.unsplash.com",
+      },
+      {
+        hostname: "media.istockphoto.com",
+      },
+      {
+        hostname: "localhost",
+      },
     ],
   },
+  redirects: async () => [
+    {
+      source: "/",
+      destination: "/auth/sign-in",
+      permanent: true,
+    },
+  ],
 };
 
 module.exports = nextConfig;

@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import { FC, ReactNode } from "react";
 
-import cn from "@/app/utils/cn";
+import cn from "@/utils/cn";
 
 const googleFont = localFont({
   src: [
@@ -35,7 +35,7 @@ const googleFont = localFont({
 });
 
 const FontProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  return <div className={cn(googleFont.variable)}>{children}</div>;
+  return <div className={cn("h-full", googleFont.variable)}>{children}</div>;
 };
 
 export default FontProvider;

@@ -146,7 +146,7 @@ const TestFC: FC<{ onClick: (value: number) => void }> = ({ onClick }) => {
   return (
     <div
       onClick={onButtonClick}
-      className="relative my-auto flex h-full items-center justify-center  self-center px-2 font-google text-sm text-text-3  hover:bg-accent hover:text-white"
+      className="text-text-3 hover:bg-accent relative my-auto flex h-full  items-center justify-center self-center px-2 font-google  text-sm hover:text-white"
     >
       <span>14</span>
       <motion.div animate={{ rotate: isOpen ? 0 : 180 }}>
@@ -158,7 +158,7 @@ const TestFC: FC<{ onClick: (value: number) => void }> = ({ onClick }) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="absolute left-0 top-full mt-2 flex flex-col items-center rounded-md bg-white p-1 text-text-4"
+            className="text-text-4 absolute left-0 top-full mt-2 flex flex-col items-center rounded-md bg-white p-1"
           >
             {fontSizes.map((font) => (
               <span onClick={() => onClick(font.value)} key={font.value} className="whitespace-nowrap py-1 pl-0.5 pr-1">

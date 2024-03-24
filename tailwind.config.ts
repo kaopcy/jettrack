@@ -9,11 +9,6 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        nura: ["var(--font-nura)"],
-        virgil: ["var(--font-virgil)"],
-        patrick: ["var(--font-patrickhand)"],
-        notoSansThai: ["var(--font-notoSansThai)"],
-        product: ["var(--font-product)"],
         google: ["var(--font-google)"],
       },
 
@@ -27,20 +22,11 @@ const config: Config = {
           hover: "#131F23",
         },
         text: {
-          "1": "#F2F2F2",
-          "2": "#ACACAC",
-          "3": "#434343",
-          "4": "#303030",
+          DEFAULT: "#343534",
           "5": "#1E1E1E",
-          "6": "#131313",
-          "7": "#080808",
         },
-        brand: {
-          DEFAULT: "#D93A00",
-          hover: "#962900",
-        },
-        accent: {
-          DEFAULT: "#1B1B1B",
+        primary: {
+          DEFAULT: "#284a62",
         },
       },
     },
