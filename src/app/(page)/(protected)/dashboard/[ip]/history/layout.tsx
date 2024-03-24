@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import React, { FC, ReactNode } from "react";
 
 import { historyService } from "@/services/history.service";
@@ -5,7 +6,6 @@ import { historyService } from "@/services/history.service";
 import HistoryLog from "./_section/HistoryLog";
 import SearchEventLog from "./_section/SearchEventLog";
 import { HistoryLogProvider } from "./_store/useHistoryStore";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "History - Jet Track",

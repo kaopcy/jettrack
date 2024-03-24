@@ -1,10 +1,10 @@
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { FC, ReactNode } from "react";
 
 import { routes } from "@/configs/routes.config";
 import authOptions from "@/libs/nextAuth/authOption";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Log in - Jet Track",

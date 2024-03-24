@@ -1,9 +1,9 @@
+import { Metadata } from "next";
 import React from "react";
 
 import AccessControl from "./_section/AccessControl";
 import HistoryConfiguration from "./_section/HistoryConfiguration";
 import Profile from "./_section/Profile";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Settings - Jet Track",
