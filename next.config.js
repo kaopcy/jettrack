@@ -17,6 +17,9 @@ const nextConfig = {
       {
         hostname: "localhost",
       },
+      {
+        hostname: "10.20.30.247",
+      },
     ],
   },
   redirects: async () => [

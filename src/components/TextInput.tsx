@@ -4,7 +4,7 @@ import Icon from "@/libs/icon";
 import cn from "@/utils/cn";
 
 type Props = {
-  icon: string;
+  icon?: string;
   label: string;
   iconClassName?: string;
   containerClassName?: string;
@@ -23,7 +23,7 @@ const TextInput: FC<Props> = ({ label, icon, iconClassName, containerClassName, 
           {...props}
         />
         <Icon
-          icon={icon}
+          icon={icon!}
           className={cn(
             "absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-[#00000040] transition-transform group-focus-within:rotate-180",
             iconClassName,

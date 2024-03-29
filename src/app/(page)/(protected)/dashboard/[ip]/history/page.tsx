@@ -12,7 +12,7 @@ const HistoryDashboardPage = () => {
   const router = useRouter();
 
   useEffectOnce(() => {
-    if (historyLogList.length > 0) {
+    if (historyLogList?.length > 0) {
       router.push(routes.dashBoard.ip(ip).history.id(historyLogList[0].id));
     }
   });

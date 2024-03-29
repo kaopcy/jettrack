@@ -9,66 +9,8 @@ import { create } from "zustand";
 
 import Card from "@/components/Card";
 import { Column, Header, Row } from "@/components/Table/Table";
+import { env } from "@/configs/env";
 import dateFormatter from "@/utils/dateFormatter";
-
-const _mockLatestEvent = [
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "Unknown",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "กรุงเทพมหานคร",
-    brand: "Unknown",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "Unknown",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "นครนายก",
-    brand: "",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    dateAndTime: "2023-02-15 10:12:22",
-    licensePlate: "กต 1234",
-    province: "ฉะเชิงเทรา",
-    brand: "",
-    licenseImage:
-      "https://images.unsplash.com/photo-1586960240672-3bec2fa9d1c2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-];
 
 type RealTimeStoreType = {
   realtimeEvent: IRealtimeEvent | null;
@@ -85,13 +27,14 @@ export const useRealTimeStore = create<RealTimeStoreType>((set) => ({
 }));
 
 const realtimeEventSchema = z.object({
-  id: z.number(),
-  timestamp: z.string(),
-  license_plate: z.string(),
-  province: z.string(),
+  id: z.string(),
+  rtsp_ip: z.string(),
   brand: z.string(),
-  car_image: z.string(),
-  license_image: z.string(),
+  car_img_url: z.string(),
+  date_time: z.string(),
+  lp_number: z.string(),
+  lp_img_url: z.string(),
+  province: z.string(),
 });
 
 type IRealtimeEvent = z.infer<typeof realtimeEventSchema>;
@@ -105,11 +48,12 @@ const LatestEvent = () => {
   useEffectOnce(() => {
     if (isCalled.current) return;
     isCalled.current = true;
-    const socket = io("http://localhost:3001"); // Replace with your server URL
+    const socket = io(env.wsApiUrl, { extraHeaders: { Authorization: `Secret ${env.wsSecret}` } }); // Replace with your server URL
     // Listen for incoming messages
     console.log("realtime: ");
-    socket.on("realtime", (message) => {
-      const realtimeLog = realtimeEventSchema.parse(JSON.parse(message.message));
+    socket.on("messageData", (message) => {
+      console.log(message);
+      const realtimeLog = realtimeEventSchema.parse(message);
       setRealTimeEvent(realtimeLog);
       setRealtimeLog((s) => [realtimeLog, ...s]);
     });
@@ -135,13 +79,13 @@ const LatestEvent = () => {
         <tbody>
           {realtimeLog.map((event, index) => (
             <Row key={index}>
-              <Column>{dateFormatter(event.timestamp)}</Column>
-              <Column>{event.license_plate}</Column>
+              <Column>{dateFormatter(event.date_time)}</Column>
+              <Column>{event.lp_number}</Column>
               <Column>{event.province}</Column>
               <Column>{event.brand}</Column>
               <Column className="py-2">
                 <div className="relative mx-auto h-[55px] w-[140px]">
-                  <Image alt="" fill src={event.license_image} className="object-cover" />
+                  <Image alt="" fill src={"http://" + event.lp_img_url} className="object-cover" />
                 </div>
               </Column>
             </Row>

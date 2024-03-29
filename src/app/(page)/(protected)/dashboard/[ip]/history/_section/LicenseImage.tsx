@@ -6,7 +6,7 @@ import { useHistoryDetailStore } from "@/app/(page)/(protected)/dashboard/[ip]/h
 import Card from "@/components/Card";
 
 const LicenseImage = () => {
-  const licenseImage = useHistoryDetailStore((state) => state.historyDetail).licenseImage;
+  const licenseImage = useHistoryDetailStore((state) => state.historyDetail).lpImage;
 
   return (
     <Card
@@ -17,7 +17,7 @@ const LicenseImage = () => {
     >
       <h1 className="mb-4 text-xl font-bold">License Image</h1>
       <div className="relative  aspect-[18/9] h-full max-w-full">
-        <Image alt="car" fill className="object-cover" sizes="50vw" src={licenseImage} priority />
+        <Image alt="car" fill className="object-cover" sizes="50vw" src={"http://" + licenseImage} priority />
       </div>
     </Card>
   );

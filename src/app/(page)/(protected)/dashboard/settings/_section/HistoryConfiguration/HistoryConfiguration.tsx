@@ -34,7 +34,9 @@ const HistoryConfiguration = () => {
               />
             </div>
           </div>
-          <button className="rounded-md bg-[#1D3557] px-4 py-1 font-bold text-white hover:bg-[#111c2c]">Apply</button>
+          <button className="rounded-md bg-[#1D3557] px-4 py-1 font-semibold text-white hover:bg-[#111c2c]">
+            Apply
+          </button>
         </div>
       </div>
       <div className="my-4 h-[3px] w-full bg-[#D9D9D9]"> </div>
@@ -54,10 +56,10 @@ const HistoryConfiguration = () => {
               icon="material-symbols:arrow-drop-down-rounded"
               iconClassName="w-6 h-6"
               containerClassName="max-w-[130px]"
-              label="Delete"
+              label="Delete events after"
             />
           </div>
-          <button className="self-end rounded-md bg-[#1D3557] px-4 py-1 font-bold text-white hover:bg-[#111c2c]">
+          <button className="self-end rounded-md bg-[#1D3557] px-4 py-1 font-semibold text-white hover:bg-[#111c2c]">
             Apply
           </button>
         </div>

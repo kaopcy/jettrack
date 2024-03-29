@@ -40,10 +40,10 @@ const IpFormModal = () => {
           <div className="absolute right-0 top-0"></div>
           <div className="rounded-xl bg-primary p-8   md:px-14 md:py-14">
             <div className="flex flex-col font-google text-base">
-              <h2 className="mb-3 text-2xl font-semibold">Providing IP</h2>
+              <h2 className="mb-3 text-2xl font-semibold">Providing RTSP IP</h2>
               <div>
-                <span className="font-normal">You need to provide the ip address to continue using </span>{" "}
-                <span className="text-blue-500 hover:underline">dashboard</span>{" "}
+                <span className="font-normal">You need to provide the rtsp ip address to continue using </span>{" "}
+                <span className="text-blue-500 hover:underline">Jet Track - Web App</span>{" "}
                 <span className="">and acknowledge that you understand the</span>{" "}
                 <a href="" className="text-blue-500 hover:underline">
                   Privacy Policy
@@ -54,7 +54,7 @@ const IpFormModal = () => {
                 <input
                   className="w-full rounded-2xl bg-white px-4 py-4 text-zinc-600 placeholder:text-zinc-400 focus:outline"
                   required
-                  placeholder="Enter ip..."
+                  placeholder="Enter RTSP IP..."
                   onChange={(e) => setIp(e.target.value)}
                 />
 

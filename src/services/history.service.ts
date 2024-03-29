@@ -7,29 +7,50 @@ import { SearchInputState } from "@/types/searchInput.type";
 
 const multipleHistoryLogsSchema = z.array(historyLogSchema);
 
-type HistoryDB = {
-  id: string;
-  timestamp: string;
-  license_plate: string;
+type LicensePlateDB = {
+  lpNumber: string;
   province: string;
-  brand: string;
-  car_image: string;
-  license_image: string;
+  lpImgUrl: string;
 };
 
-const getAll = async (): Promise<HistoryLog[]> => {
-  const response = await axios.get<HistoryDB[]>(apiRoutes.historyLog.getAll);
+type HistoryDB = {
+  id: string;
+  dateTime: string;
+  license_plates: LicensePlateDB;
+  brand: string;
+  carImgUrl: string;
+  rtspIp: string;
+};
 
+const getAll = async (input: SearchInputState): Promise<HistoryLog[]> => {
+  const response = await axios.post<HistoryDB[]>(apiRoutes.historyLog.getAllCars, input);
+  const before: HistoryLog[] = response.data.map((e) => ({
+    id: e.id,
+    brand: e.brand,
+    dateTime: e.dateTime,
+    rtspIp: e.rtspIp,
+    lpNumber: e.license_plates.lpNumber,
+    province: e.license_plates.province,
+    lpImage: e.license_plates.lpImgUrl,
+    carImage: e.carImgUrl,
+  }));
+
+  const data = multipleHistoryLogsSchema.parse(before);
+
+  return data;
+};
+
+const getAllBySearch = async (input: Partial<SearchInputState>): Promise<HistoryLog[]> => {
+  const response = await axios.post<HistoryDB[]>(apiRoutes.historyLog.getAllCars, input);
   const before: HistoryLog[] = response.data.map((e) => ({
     brand: e.brand,
-    dateAndTime: e.timestamp,
+    dateTime: e.dateTime,
     id: e.id,
-    ipAddress: e.brand,
-    licenseImage: e.license_image,
-    carImage: e.car_image,
-    licensePlate: e.license_plate,
-    province: e.province,
-    type: e.brand,
+    rtspIp: e.rtspIp,
+    lpImage: e.license_plates.lpImgUrl,
+    carImage: e.carImgUrl,
+    lpNumber: e.license_plates.lpNumber,
+    province: e.license_plates.province,
   }));
 
   const data = multipleHistoryLogsSchema.parse(before);
@@ -38,18 +59,16 @@ const getAll = async (): Promise<HistoryLog[]> => {
 };
 
 const getById = async (id: string): Promise<HistoryLog> => {
-  const response = await axios.get<HistoryDB>(apiRoutes.historyLog.getById(id));
-
+  const response = await axios.get<HistoryDB>(apiRoutes.historyLog.getCarById(id));
   const before: HistoryLog = {
     brand: response.data.brand,
-    dateAndTime: response.data.timestamp,
+    dateTime: response.data.dateTime,
     id: response.data.id,
-    ipAddress: response.data.brand,
-    licenseImage: response.data.license_image,
-    licensePlate: response.data.license_plate,
-    province: response.data.province,
-    type: response.data.brand,
-    carImage: response.data.car_image,
+    rtspIp: response.data.rtspIp,
+    lpImage: response.data.license_plates.lpImgUrl,
+    lpNumber: response.data.license_plates.lpNumber,
+    province: response.data.license_plates.province,
+    carImage: response.data.carImgUrl,
   };
 
   const data = historyLogSchema.parse(before);
@@ -68,4 +87,5 @@ export const historyService = {
   getAll,
   getById,
   refetch,
+  getAllBySearch,
 };

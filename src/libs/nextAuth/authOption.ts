@@ -2,12 +2,9 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 import { env } from "@/configs/env";
-import { routes } from "@/configs/routes.config";
+import { userService } from "@/services/user.service";
 
 const authOptions: NextAuthOptions = {
-  // pages: {
-  //   signIn: routes.signIn,
-  // },
   providers: [
     CredentialsProvider({
       credentials: {
@@ -16,63 +13,38 @@ const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         const payload = {
-          email: credentials?.username,
-          password: credentials?.password,
+          username: credentials!.username,
+          password: credentials!.password,
         };
-
-        console.log(`payload: ${payload}`);
-
-        const user: {
-          id: string;
-          role: string;
-          username: string;
-          name?: string | null;
-          email?: string | null;
-          image?: string | null;
-        } = {
-          id: "ddd12321312",
-          email: "awdawd@adawd.com",
-          name: credentials?.username,
-          username: credentials?.username || "awdawd",
-          role: "admin",
-          image: "awdawdwa",
-        };
-
-        // const user = await res.json();
-        // if (!res.ok) {
-        //   throw new Error(user.message);
-        // }
-        // if (res.ok && user) {
-        //   return user;
-        // }
-
+        const user = await userService.userLogIn(payload);
         return user;
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.username = user.username;
+        token.sub = user.sub;
+        token.role = user.role;
+      }
+      return token;
+    },
+
+    async session({ session, token }) {
+      session.user.id = token.id;
+      session.user.username = token.username;
+      session.user.sub = token.sub;
+      session.user.role = token.role;
+      return session;
+    },
+  },
   secret: env.authSecret,
-
-  //   async signIn({ user, account, credentials }) {
-  //     if (account?.provider === "google") {
-  //       try {
-  //         const registeredUser = await userService.registerUser({
-  //           email: user.email ?? "",
-  //           id: user.id,
-  //           name: user.name ?? "",
-  //           picture: user.image ?? "",
-  //         });
-
-  //         console.log(registeredUser);
-  //         return true;
-  //       } catch (e) {
-  //         console.log("error + ", e);
-
-  //         return "/auth/google-signin?error=this+is+error";
-  //       }
-  //     }
-  //     return true;
-  //   },
-  // },
+  session: {
+    maxAge: 5 * 60 * 60,
+    strategy: "jwt",
+  },
 };
 
 export default authOptions;

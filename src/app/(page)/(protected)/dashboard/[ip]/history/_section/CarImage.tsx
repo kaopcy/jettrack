@@ -18,7 +18,7 @@ const CarImage = () => {
     >
       <h1 className="mb-4 text-xl font-bold">Car Image</h1>
       <div className="relative aspect-[18/9] w-full overflow-hidden  bg-[#00000005]">
-        <Image alt="car" fill sizes="50vw" className="object-cover" priority src={carImage} />
+        <Image alt="car" fill sizes="50vw" className="object-cover" priority src={"http://" + carImage} />
       </div>
     </Card>
   );

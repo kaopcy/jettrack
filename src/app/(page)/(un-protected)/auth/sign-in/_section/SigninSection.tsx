@@ -36,11 +36,12 @@ const SigninSection = () => {
         password,
         callbackUrl: `${window.location.origin}`,
       });
+      if (res?.status == 401) alert("Username/Password is incorrect. please try again.");
       if (res?.ok) window.location.reload();
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(true);
+      setIsLoading(false);
     }
   };
 

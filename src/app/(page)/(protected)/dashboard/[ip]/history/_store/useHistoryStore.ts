@@ -24,8 +24,9 @@ const { Provider, buildStateHook } = buildStoreContext<HistoryStore>((set) => ({
   refetch: async (input: Partial<SearchInputState>) => {
     try {
       set({ isLoading: true });
-      const historyList = await historyService.refetch(input);
+      const historyList = await historyService.getAllBySearch(input);
       set({ historyList, error: null });
+      console.log(historyList);
     } catch (error) {
       if (error instanceof Error) {
         set({ error: error.message });

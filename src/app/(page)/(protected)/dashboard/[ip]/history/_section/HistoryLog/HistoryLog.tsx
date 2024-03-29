@@ -18,7 +18,7 @@ import useSearchInputStore from "../../_store/useSearchInputStore";
 const HistoryLog = () => {
   const historyLogs = useHistoryLog((state) => state.historyList);
   const isLoading = useHistoryLog((state) => state.isLoading);
-  const isLogEmpty = historyLogs.length === 0;
+  const isLogEmpty = historyLogs?.length === 0;
 
   const router = useRouter();
 
@@ -33,7 +33,7 @@ const HistoryLog = () => {
 
   const setLicensePlate = useSearchInputStore((state) => state.setLicensePlate);
   const setProvince = useSearchInputStore((state) => state.setProvince);
-  const setType = useSearchInputStore((state) => state.setType);
+  const setBrand = useSearchInputStore((state) => state.setBrand);
   const setStartDateTime = useSearchInputStore((state) => state.setStartDateTime);
   const setEndDateTime = useSearchInputStore((state) => state.setEndDateTime);
 
@@ -68,13 +68,13 @@ const HistoryLog = () => {
               <Header className="pt-2">Date and time</Header>
               <Header className="pt-2">License</Header>
               <Header className="pt-2">Province</Header>
-              <Header className="pt-2">Type</Header>
+              <Header className="pt-2">Brand</Header>
               <Header className="pt-2">Ip</Header>
             </tr>
           </thead>
           <tbody>
             {!isLogEmpty &&
-              historyLogs.map((event, index) => (
+              historyLogs?.map((event, index) => (
                 <Row
                   onClick={() => onRowClick(event.id)}
                   className={cn(
@@ -87,20 +87,20 @@ const HistoryLog = () => {
                   <Column>
                     <ColumnLink
                       onClick={() => {
-                        setStartDateTime(event.dateAndTime);
-                        setEndDateTime(event.dateAndTime);
+                        setStartDateTime(event.dateTime);
+                        setEndDateTime(event.dateTime);
                       }}
                     >
-                      {dateFormatter(event.dateAndTime)}
+                      {dateFormatter(event.dateTime)}
                     </ColumnLink>
                   </Column>
                   <Column>
                     <ColumnLink
                       onClick={() => {
-                        setLicensePlate(event.licensePlate);
+                        setLicensePlate(event.lpNumber);
                       }}
                     >
-                      {event.licensePlate}
+                      {event.lpNumber}
                     </ColumnLink>
                   </Column>
                   <Column>
@@ -115,10 +115,10 @@ const HistoryLog = () => {
                   <Column>
                     <ColumnLink
                       onClick={() => {
-                        setType(event.type);
+                        setBrand(event.brand);
                       }}
                     >
-                      {event.type}
+                      {event.brand}
                     </ColumnLink>
                   </Column>
                   <Column>{ip}</Column>

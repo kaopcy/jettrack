@@ -7,25 +7,26 @@ import { SearchInputState } from "@/types/searchInput.type";
 type SearchInputStore = {
   setLicensePlate: (input: string) => void;
   setProvince: (input: string) => void;
-  setType: (input: string) => void;
+  setBrand: (input: string) => void;
   setStartDateTime: (input: string) => void;
   setEndDateTime: (input: string) => void;
 } & SearchInputState;
 
 const useSearchInputStore = create<SearchInputStore>((set) => ({
-  licensePlate: "",
+  rtsp_ip: "",
+  lpNumber: "",
   province: "",
-  type: "",
+  brand: "",
   startDateTime: "",
   endDateTime: "",
   setLicensePlate: (input: string) => {
-    set({ licensePlate: input });
+    set({ lpNumber: input });
   },
   setProvince: (input: string) => {
     set({ province: input });
   },
-  setType: (input: string) => {
-    set({ type: input });
+  setBrand: (input: string) => {
+    set({ brand: input });
   },
   setStartDateTime: (input: string) => {
     set({ startDateTime: input });

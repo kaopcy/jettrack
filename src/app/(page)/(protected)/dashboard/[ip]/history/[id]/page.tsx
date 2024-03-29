@@ -17,7 +17,6 @@ type Props = {
 
 const HistoryDashboardPerIdPage: FC<Props> = async ({ params }) => {
   const { id } = paramsSchema.parse(params);
-
   const historyDetail = await historyService.getById(id);
 
   return (

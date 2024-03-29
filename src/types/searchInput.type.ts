@@ -1,9 +1,10 @@
 import { z } from "zod";
 
 export const searchInputStateSchema = z.object({
-  licensePlate: z.coerce.string().optional(),
+  rtsp_ip: z.string(),
+  lpNumber: z.coerce.string().optional(),
   province: z.coerce.string().optional(),
-  type: z.coerce.string().optional(),
+  brand: z.coerce.string().optional(),
   startDateTime: z.coerce.string().optional(),
   endDateTime: z.coerce.string().optional(),
 });

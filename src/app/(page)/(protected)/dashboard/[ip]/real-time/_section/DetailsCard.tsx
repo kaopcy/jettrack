@@ -17,9 +17,9 @@ const DetailsCard = () => {
 
       <div className="mb-4 mt-1 h-[3px] w-full bg-[#D9D9D9]"></div>
       <div className="flex w-full flex-col gap-4">
-        <DetailsColumn label="ID" value="102" />
-        <DetailsColumn label="Date and Time" value={realtimeEvent && dateFormatter(realtimeEvent.timestamp)} />
-        <DetailsColumn label="License plate" value={realtimeEvent && realtimeEvent.license_plate} />
+        <DetailsColumn label="ID" value={realtimeEvent && realtimeEvent.id} />
+        <DetailsColumn label="Date and Time" value={realtimeEvent && dateFormatter(realtimeEvent.date_time)} />
+        <DetailsColumn label="License plate" value={realtimeEvent && realtimeEvent.lp_number} />
         <DetailsColumn label="Province" value={realtimeEvent && realtimeEvent.province} />
         <DetailsColumn label="Brand" value={realtimeEvent && realtimeEvent.brand} />
         <DetailsColumn label="IP" value={ip} />

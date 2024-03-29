@@ -5,18 +5,20 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 
 import Card from "@/components/Card";
+import { env } from "@/configs/env";
 
 const RealTimeCarImage = () => {
   const [src, setSrc] = useState("");
   useEffect(() => {
-    const socket = io("http://localhost:3001"); // Replace with your server URL
+    const socket = io(env.wsApiUrl, { extraHeaders: { Authorization: `Secret ${env.wsSecret}` } }); // Replace with your server URL
     // Listen for incoming messages
-    socket.on("response", (message) => {
-      const file = message.message;
+    socket.on("messageData", (message) => {
+      const file = "http://" + message.car_img_url;
 
       if (file.length == 0) return;
 
-      const base64Image = `data:image/png;base64,${file.replaceAll('"', "")}`;
+      // const base64Image = `data:image/png;base64,${file.replaceAll('"', "")}`;
+      const base64Image = `${file.replaceAll('"', "")}`;
       setSrc(base64Image);
     });
 

@@ -16,8 +16,8 @@ export async function POST(request: Request) {
 
   const filtered = _mockHistoryLogs.filter(
     (log) =>
-      log.licensePlate.includes(validatedBody.licensePlate || "") &&
-      isDateMatch(log.dateAndTime, validatedBody.startDateTime, validatedBody.endDateTime),
+      log.lpNumber.includes(validatedBody.lpNumber || "") &&
+      isDateMatch(log.dateTime, validatedBody.startDateTime, validatedBody.endDateTime),
   );
 
   return Response.json(filtered);
